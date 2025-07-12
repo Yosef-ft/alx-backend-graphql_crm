@@ -38,10 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # local
     "crm",
-
-    # 3rd party:
     "graphene_django",
     "django_filters",
 ]
