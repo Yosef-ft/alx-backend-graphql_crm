@@ -1,9 +1,10 @@
 import graphene
 from graphene_django import DjangoObjectType
+from crm.schema import CRMQuery 
 
 from crm.models import Customer, Product,  Order
 
-class Query(graphene.ObjectType):
+class Query(CRMQuery, graphene.ObjectType):
     hello: str = graphene.String(default_value="Hello, GraphQL!")
 
 

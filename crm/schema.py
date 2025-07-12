@@ -7,3 +7,8 @@ class Mutation(graphene.ObjectType):
     # create_product = CreateProduct.Field()
     # create_order = CreateOrder.Field()
     pass
+
+
+
+class CRMQuery:
+    pass 
