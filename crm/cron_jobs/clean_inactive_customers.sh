@@ -20,7 +20,7 @@ count = inactive_customers.count()
 
 inactive_customers.delete()
 
-# Log result
+
 timestamp = timezone.now().strftime('%Y-%m-%d %H:%M:%S')
 with open('/tmp/customer_cleanup_log.txt', 'a') as log_file:
     log_file.write(f"{timestamp} - Deleted {count} inactive customer(s)\n")
