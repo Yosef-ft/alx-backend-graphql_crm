@@ -17,7 +17,6 @@ class CustomerFilter(django_filters.FilterSet):
         fields=(
             ('name', 'name'),
             ('email', 'email'),
-            ('created_at', 'created_at'),
         )
     )
 
@@ -26,7 +25,6 @@ class CustomerFilter(django_filters.FilterSet):
         fields = {
             'name': ['icontains'], 
             'email': ['icontains'],
-            'created_at': ['gte', 'lte'], 
         }
 
     def filter_by_phone_pattern(self, queryset, name, value):
