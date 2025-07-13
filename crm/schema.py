@@ -52,7 +52,13 @@ class CreateCustomer(graphene.Mutation):
         if phone and not re.match(r'^(\+1|1-)?\d{3}-?\d{3}-?\d{4}$', phone):
             raise Exception("Invalid phone number format.")
 
-        customer_instance = Customer.objects.create(**input)
+        customer_instance = Customer(
+            name=input.name,
+            email=email,
+            phone=phone
+        )
+        customer_instance.save()
+
         return CreateCustomer(
             customer=customer_instance,
             message="Customer created successfully."
