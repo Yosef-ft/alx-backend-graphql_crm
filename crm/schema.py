@@ -182,3 +182,12 @@ class Query(graphene.ObjectType):
     all_customers = DjangoFilterConnectionField(CustomerType, filterset_class=CustomerFilter)
     all_products = DjangoFilterConnectionField(ProductType, filterset_class=ProductFilter)
     all_orders = DjangoFilterConnectionField(OrderType, filterset_class=OrderFilter)
+
+    total_orders = graphene.Int()
+    total_customers = graphene.Int()
+
+    def resolve_total_customers(self, info, **kwargs):
+        return Customer.objects.count()
+
+    def resolve_total_orders(self, info, **kwargs):
+        return Order.objects.count()
