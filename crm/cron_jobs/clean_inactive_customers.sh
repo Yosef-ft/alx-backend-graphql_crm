@@ -1,7 +1,8 @@
 #!/bin/bash
 # Cron job to clean inactive customers
 
-cd /home/yosef/Documents/Programming/ALX/alx-backend-graphql_crm
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/../.."
 
 source .venv/bin/activate
 
