@@ -1,28 +1,13 @@
 import graphene
 from graphene_django import DjangoObjectType
-from crm.schema import CRMQuery 
+from crm.schema import Query as CRMQuery, Mutation as CRMMutation
 
-from crm.models import Customer, Product,  Order
 
 class Query(CRMQuery, graphene.ObjectType):
     hello: str = graphene.String(default_value="Hello, GraphQL!")
 
 
-class CustomerType(DjangoObjectType):
-    class Meta:
-        model = Customer
-        fields = ["name", "email", "phone"]
+class Mutation(CRMMutation, graphene.ObjectType):
+    pass
 
-
-class ProductType(DjangoObjectType):
-    class Meta:
-        model = Product
-        fields = ["name", "price", "stock"]
-
-
-class OrderType(DjangoObjectType):
-    class Meta:
-        model = Order
-        fields = ["customer_id", "customer_id", "order_date"]        
-
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query, mutation=Mutation)
